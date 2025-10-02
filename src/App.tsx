@@ -10,6 +10,8 @@ import Layout from "./components/Layout";
 import RemoteModuleErrorBoundary from "./components/RemoteModuleErrorBoundary";
 import "./index.css";
 import Home from "./pages/Home";
+import { ModuleLoadError } from "./components/module-load-error";
+import { SuspenseFallback } from "./components/suspense-fallback";
 
 function DynamicFederatedComponent(input: {
   remoteName: string;
@@ -49,13 +51,13 @@ function DynamicFederatedComponent(input: {
   if (DynamicRemote) {
     return (
       <>
-        <Suspense fallback={<div>Loading fallback</div>}>
+        <Suspense fallback={<SuspenseFallback />}>
           <DynamicRemote />
         </Suspense>
       </>
     );
   } else {
-    return <h1>Loading...</h1>;
+    return <ModuleLoadError />
   }
 }
 
