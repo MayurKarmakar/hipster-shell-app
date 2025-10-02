@@ -45,7 +45,7 @@ function DynamicFederatedComponent(input: {
   }, [remoteName, componentName, url]);
 
   if (error) {
-    throw error;
+    return <ModuleLoadError />;
   }
 
   if (DynamicRemote) {
@@ -57,7 +57,7 @@ function DynamicFederatedComponent(input: {
       </>
     );
   } else {
-    return <ModuleLoadError />
+    return <SuspenseFallback />
   }
 }
 
