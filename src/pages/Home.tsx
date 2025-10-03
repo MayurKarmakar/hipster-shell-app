@@ -127,7 +127,7 @@ export default function Home() {
             </p>
           </div>
           <div className="pt-2">
-            <Link to="/auth">
+            <Link to="/login">
               <Button className="w-full sm:w-auto text-sm">
                 Get Started
               </Button>
